@@ -1,26 +1,20 @@
 package Line;
-import Shape.*;
+import Shapes.*;
+import java.awt.*;
 
-public class Line extends Shape {
-  private int starX, startY, endX, endY;
+public class Line extends Shapes {
+  public Point endCoordinate = new Point();
 
-  public Line(int starX, int startY, int endX, int endY) {
-    setCoordinates(starX, startY, endX, endY);
+  public Line(int startX, int startY, int endX, int endY) {
+    super(startX, startY);
+    setEndCoordinate(endX, endY);
   }
 
-  public int[] getCoordinates() {
-    int coordinates[] = {starX, startY, endX, endY}; 
-    return coordinates;
+  public void setEndCoordinate(int endX, int endY) {
+    endCoordinate.setLocation(endX, endY);
   }
 
-  public void setCoordinates(int starX, int startY, int endX, int endY) {
-    this.starX = starX;
-    this.startY = startY;
-    this.endX = endX;
-    this.endY = endY;
-  }
-
-  public void draw() {
-    System.out.println("Line");
+  public void draw(Graphics g) {
+    g.drawLine(startCoordinate.x, startCoordinate.y, endCoordinate.x, endCoordinate.y);
   }
 } 

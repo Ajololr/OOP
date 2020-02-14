@@ -1,5 +1,6 @@
 package IntDraw;
+import java.awt.*;
 
 abstract public interface IntDraw{
-  void draw();
+  public void draw(Graphics g);
 }
