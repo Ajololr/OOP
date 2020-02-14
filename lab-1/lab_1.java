@@ -1,5 +1,6 @@
 import Shape.*;
 import Circle.*;
+import Line.*;
 import java.awt.event.*;
 import java.awt.*;
 
@@ -17,5 +18,6 @@ public class lab_1 extends Frame {
     app.setSize(new Dimension(640, 480));
     app.setTitle("lab_1");
     app.setVisible(true);
+
   }
 }

@@ -5,18 +5,18 @@ public class Circle extends Shape {
   private int radius;
 
   public Circle(int radius) {
-    getRadius(radius);
+    setRadius(radius);
   }
 
   public int getRadius() {
     return radius;
   }
 
-  public void getRadius(int radius) {
+  public void setRadius(int radius) {
     this.radius = radius;
   }
 
   public void draw() {
-    System.out.println('x');
+    System.out.println("Circle");
   }
 } 
