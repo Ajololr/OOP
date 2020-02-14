@@ -1,4 +1,5 @@
 import Shapes.*;
+import Ellipse.*;
 import Circle.*;
 import Line.*;
 import java.awt.event.*;
@@ -7,6 +8,7 @@ import java.awt.*;
 public class lab_1 extends Frame {
   public Line line = new Line(30, 40, 100, 100);
   public Circle circle = new Circle(150, 40, 45);
+  public Ellipse ellipse = new Ellipse(300, 40, 200, 100);
 
   public lab_1() {
     addWindowListener(new WindowAdapter() {
@@ -19,6 +21,7 @@ public class lab_1 extends Frame {
   public void paint(Graphics g) {
     line.draw(g);
     circle.draw(g);
+    ellipse.draw(g);
   }
 
   public static void main(String[] args) {
