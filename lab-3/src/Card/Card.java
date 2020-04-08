@@ -1,4 +1,5 @@
 package Card;
 
-public class Card {
+public abstract class Card {
+    private String name;
 }
