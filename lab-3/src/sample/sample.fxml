@@ -10,16 +10,16 @@
 <AnchorPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
     <children>
-        <Button text="Add" layoutY="50" layoutX="50" onAction="#loadFromFile"/>
-        <Button text="Add" layoutY="50" layoutX="250" onAction="#saveToFile"/>
-        <TableView fx:id="cardsTable" layoutX="100.0" layoutY="100.0" minHeight="400" maxWidth="600">
+        <Button text="Load from file" layoutY="50" layoutX="50" onAction="#loadFromFile"/>
+        <Button text="Save to file" layoutY="50" layoutX="350" onAction="#saveToFile"/>
+        <TableView fx:id="cardsTable" layoutX="50.0" layoutY="100.0" minHeight="400" maxWidth="400">
             <columns>
-                <TableColumn fx:id="nameColumn" minWidth="300" text="Name"/>
-                <TableColumn fx:id="hashCodeColumn" minWidth="300" text="Hash Code"/>
+                <TableColumn fx:id="nameColumn" minWidth="200" text="Name"/>
+                <TableColumn fx:id="hashCodeColumn" minWidth="200" text="Hash Code"/>
             </columns>
         </TableView>
-        <Button text="Add" layoutY="500" layoutX="50" onAction="#addCard"/>
-        <Button text="Add" layoutY="500" layoutX="250" onAction="#editCard"/>
-        <Button text="Add" layoutY="500" layoutX="450" onAction="#deleteCard"/>
+        <Button text="Add" layoutY="550" layoutX="50" onAction="#addCard"/>
+        <Button text="Edit" layoutY="550" layoutX="150" onAction="#editCard"/>
+        <Button text="Delete" layoutY="550" layoutX="350" onAction="#deleteCard"/>
     </children>
 </AnchorPane>

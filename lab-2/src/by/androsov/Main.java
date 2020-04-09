@@ -16,13 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main extends Frame implements KeyListener, MouseListener {
-    private ArrayList<Shapes> shapesList = new ArrayList<>();
     private static Map<Integer, Creator> shapesTable;
     private Creator currentCreator;
     private Shapes currentShape;
 
     public Main() {
-//      setShapes();
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 System.exit(0);
@@ -52,25 +50,10 @@ public class Main extends Frame implements KeyListener, MouseListener {
         });
     }
 
-    private void setShapes() {
-        shapesList.add(new Line(30, 40, 100, 100));
-        shapesList.add(new Circle(150, 40, 45));
-        shapesList.add(new Ellipse(300, 40, 200, 100));
-        shapesList.add(new Rectangle(30, 150, 100, 150));
-        shapesList.add(new Square(150, 150, 100));
-        shapesList.add(new Triangle(300, 200, 100));
-    }
-
-    public void paint(Graphics g) {
-        for (Shapes shape : shapesList) {
-            shape.draw(g);
-        }
-    }
-
     public static void main(String[] args) {
         var app = new Main();
         app.setSize(new Dimension(640, 480));
-        app.setTitle("lab_1");
+        app.setTitle("lab_2");
         app.setVisible(true);
         initTable();
         app.addKeyListener(app);

@@ -10,8 +10,11 @@ import javafx.scene.control.TableView;
 public class Controller {
 
     public ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
+    @FXML
     public TableView<TableField> cardsTable;
+    @FXML
     public TableColumn<TableField,Object> nameColumn;
+    @FXML
     public TableColumn<TableField, Integer> hashCodeColumn;
 
     @FXML
@@ -21,8 +24,25 @@ public class Controller {
         cardsTable.setItems(tableDataList);
     }
 
+    @FXML
+    public void saveToFile() throws Exception{
+    }
+
+    @FXML
+    public void loadFromFile() throws Exception{
+    }
+
+    @FXML
     public void addCard() throws Exception{
         Object obj = new Object();
         tableDataList.add(new TableField(obj, obj.hashCode()));
+    }
+
+    @FXML
+    public void editCard() throws Exception{
+    }
+
+    @FXML
+    public void deleteCard() throws Exception{
     }
 }
