@@ -18,12 +18,13 @@ import java.beans.XMLEncoder;
 import java.io.*;
 
 public class Controller {
-
     public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
+    public static int selectedIndex;
+    public static boolean isEditing = false;
     @FXML
     private TableView<TableField> cardsTable;
     @FXML
-    private TableColumn<TableField,Object> nameColumn;
+    private TableColumn<TableField, Object> nameColumn;
     @FXML
     private TableColumn<TableField, Integer> hashCodeColumn;
 
@@ -46,6 +47,7 @@ public class Controller {
     @FXML
     public void loadFromFile() throws Exception {
         XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("Data.xml")));
+        tableDataList.clear();
         while (true) {
             try {
                 Card tmp = (Card) decoder.readObject();
@@ -68,13 +70,20 @@ public class Controller {
 
     @FXML
     public void editCard() throws Exception{
-        int selectIndex = cardsTable.getSelectionModel().getSelectedIndex();
-        if (selectIndex != -1) cardsTable.getItems().remove(selectIndex);
+        selectedIndex = cardsTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            isEditing = true;
+            Stage primaryStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("CardForm.fxml"));
+            primaryStage.setTitle("Lab3");
+            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.show();
+        }
     }
 
     @FXML
     public void deleteCard() throws Exception{
-        int selectIndex = cardsTable.getSelectionModel().getSelectedIndex();
-        if (selectIndex != -1) cardsTable.getItems().remove(selectIndex);
+        selectedIndex = cardsTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) cardsTable.getItems().remove(selectedIndex);
     }
 }

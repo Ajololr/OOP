@@ -19,26 +19,28 @@ import java.util.Map;
 import javafx.stage.Stage;
 
 public class CardController {
-    private Map<String, Creator> creatorTable = new HashMap<>();
-    private TextField nameField, costField;
+    public Map<String, Creator> creatorTable = new HashMap<>();
+    public TextField nameField, costField, turnField;
+    public TextArea skillField, descField;
+    public ComboBox<CardType> typeField;
 
     @FXML
-    private ComboBox<String> cardSelector;
+    public ComboBox<String> cardSelector;
 
     @FXML
-    private AnchorPane anchorPane;
+    public AnchorPane anchorPane;
 
-    private void setFieldsForHero() {
+    public void setFieldsForHero() {
         Label nameLbl = new Label("Name:");
         nameLbl.setLayoutX(20);
         nameLbl.setLayoutY(50);
-        TextField nameField = new TextField();
+        nameField = new TextField();
         nameField.setLayoutX(60);
         nameField.setLayoutY(50);
         Label typeLbl = new Label("Type:");
         typeLbl.setLayoutX(20);
         typeLbl.setLayoutY(80);
-        ComboBox<CardType> typeField = new ComboBox<>();
+        typeField = new ComboBox<>();
         ObservableList<CardType> typeList = FXCollections.observableArrayList(CardType.COMMON, CardType.MILITARY, CardType.NOBLE, CardType.SPIRITUAL, CardType.TRADE);
         typeField.setItems(typeList);
         typeField.setValue(CardType.COMMON);
@@ -47,33 +49,19 @@ public class CardController {
         Label turnLbl = new Label("Turn:");
         turnLbl.setLayoutX(20);
         turnLbl.setLayoutY(110);
-        TextField turnField = new TextField();
+        turnField = new TextField();
         turnField.setLayoutX(60);
         turnField.setLayoutY(110);
         Label termLbl = new Label("Skill:");
         termLbl.setLayoutX(20);
         termLbl.setLayoutY(140);
-        TextArea skillField = new TextArea();
+        skillField = new TextArea();
         skillField.setLayoutX(60);
         skillField.setLayoutY(140);
-        Button addBtn = new Button("Add card");
-        addBtn.setLayoutX(20);
-        addBtn.setLayoutY(360);
-        addBtn.setOnAction(e -> {
-            if (nameField.getText().trim().isEmpty() || skillField.getText().trim().isEmpty()) return;
-            try {
-                HeroCard card = new HeroCard(nameField.getText(), typeField.getValue(), Integer.parseInt(turnField.getText()), skillField.getText());
-                Controller.tableDataList.add(new TableField(card, card.hashCode()));
-            } catch (Exception ex) {
-                return;
-            }
-            Stage stage = (Stage) addBtn.getScene().getWindow();
-            stage.close();
-        });
-        anchorPane.getChildren().addAll(addBtn, nameLbl, termLbl, turnLbl, typeLbl, nameField, skillField, turnField, typeField);
+        anchorPane.getChildren().addAll(nameLbl, termLbl, turnLbl, typeLbl, nameField, skillField, turnField, typeField);
     }
 
-    private void setFieldsForQuarter() {
+    public void setFieldsForQuarter() {
         Label nameLbl = new Label("Name:");
         nameLbl.setLayoutX(20);
         nameLbl.setLayoutY(50);
@@ -91,128 +79,151 @@ public class CardController {
 
     @FXML
     private void initialize() throws ClassNotFoundException {
-        creatorTable.put("Hero card", this::setFieldsForHero);
-        creatorTable.put("Common quarter", () -> {
-            setFieldsForQuarter();
-            Button addBtn = new Button("Add card");
-            addBtn.setLayoutX(20);
-            addBtn.setLayoutY(110);
-            addBtn.setOnAction(e -> {
-                if (nameField.getText().trim().isEmpty()) return;
-                try {
-                    CommonQuarter card = new CommonQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
-                    Controller.tableDataList.add(new TableField(card, card.hashCode()));
-                } catch (Exception ex) {
-                    return;
-                }
-                Stage stage = (Stage) addBtn.getScene().getWindow();
-                stage.close();
+        if (!Controller.isEditing) {
+            creatorTable.put("Hero card", () -> {
+                this.setFieldsForHero();
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(360);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty() || skillField.getText().trim().isEmpty()) return;
+                    try {
+                        HeroCard card = new HeroCard(nameField.getText(), typeField.getValue(), Integer.parseInt(turnField.getText()), skillField.getText());
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().add(addBtn);
             });
-            anchorPane.getChildren().addAll(addBtn);
-        });
-        creatorTable.put("Military quarter", () -> {
-            setFieldsForQuarter();
-            Button addBtn = new Button("Add card");
-            addBtn.setLayoutX(20);
-            addBtn.setLayoutY(110);
-            addBtn.setOnAction(e -> {
-                if (nameField.getText().trim().isEmpty()) return;
-                try {
-                    MilitaryQuarter card = new MilitaryQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
-                    Controller.tableDataList.add(new TableField(card, card.hashCode()));
-                } catch (Exception ex) {
-                    return;
-                }
-                Stage stage = (Stage) addBtn.getScene().getWindow();
-                stage.close();
+            creatorTable.put("Common quarter", () -> {
+                setFieldsForQuarter();
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(110);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty()) return;
+                    try {
+                        CommonQuarter card = new CommonQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().addAll(addBtn);
             });
-            anchorPane.getChildren().addAll(addBtn);
-        });
-        creatorTable.put("Noble quarter", () -> {
-            setFieldsForQuarter();
-            Button addBtn = new Button("Add card");
-            addBtn.setLayoutX(20);
-            addBtn.setLayoutY(110);
-            addBtn.setOnAction(e -> {
-                if (nameField.getText().trim().isEmpty()) return;
-                try {
-                    NobleQuarter card = new NobleQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
-                    Controller.tableDataList.add(new TableField(card, card.hashCode()));
-                } catch (Exception ex) {
-                    return;
-                }
-                Stage stage = (Stage) addBtn.getScene().getWindow();
-                stage.close();
+            creatorTable.put("Military quarter", () -> {
+                setFieldsForQuarter();
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(110);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty()) return;
+                    try {
+                        MilitaryQuarter card = new MilitaryQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().addAll(addBtn);
             });
-            anchorPane.getChildren().addAll(addBtn);
-        });
-        creatorTable.put("Spiritual quarter", () -> {
-            setFieldsForQuarter();
-            Button addBtn = new Button("Add card");
-            addBtn.setLayoutX(20);
-            addBtn.setLayoutY(110);
-            addBtn.setOnAction(e -> {
-                if (nameField.getText().trim().isEmpty()) return;
-                try {
-                    SpiritualQuarter card = new SpiritualQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
-                    Controller.tableDataList.add(new TableField(card, card.hashCode()));
-                } catch (Exception ex) {
-                    return;
-                }
-                Stage stage = (Stage) addBtn.getScene().getWindow();
-                stage.close();
+            creatorTable.put("Noble quarter", () -> {
+                setFieldsForQuarter();
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(110);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty()) return;
+                    try {
+                        NobleQuarter card = new NobleQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().addAll(addBtn);
             });
-            anchorPane.getChildren().addAll(addBtn);
-        });
-        creatorTable.put("Trade quarter", () -> {
-            setFieldsForQuarter();
-            Button addBtn = new Button("Add card");
-            addBtn.setLayoutX(20);
-            addBtn.setLayoutY(110);
-            addBtn.setOnAction(e -> {
-                if (nameField.getText().trim().isEmpty()) return;
-                try {
-                    TradeQuarter card = new TradeQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
-                    Controller.tableDataList.add(new TableField(card, card.hashCode()));
-                } catch (Exception ex) {
-                    return;
-                }
-                Stage stage = (Stage) addBtn.getScene().getWindow();
-                stage.close();
+            creatorTable.put("Spiritual quarter", () -> {
+                setFieldsForQuarter();
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(110);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty()) return;
+                    try {
+                        SpiritualQuarter card = new SpiritualQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().addAll(addBtn);
             });
-            anchorPane.getChildren().addAll(addBtn);
-        });
-        creatorTable.put("Unique quarter", () -> {
-            setFieldsForQuarter();
-            Label descLbl = new Label("Description:");
-            descLbl.setLayoutX(20);
-            descLbl.setLayoutY(110);
-            TextArea descField = new TextArea();
-            descField.setLayoutX(100);
-            descField.setLayoutY(110);
-            Button addBtn = new Button("Add card");
-            addBtn.setLayoutX(20);
-            addBtn.setLayoutY(300);
-            addBtn.setOnAction(e -> {
-                if (nameField.getText().trim().isEmpty() || descField.getText().trim().isEmpty()) return;
-                try {
-                    UniqueQuarter card = new UniqueQuarter(nameField.getText(), Integer.parseInt(costField.getText()), descField.getText());
-                    Controller.tableDataList.add(new TableField(card, card.hashCode()));
-                } catch (Exception ex) {
-                    return;
-                }
-                Stage stage = (Stage) addBtn.getScene().getWindow();
-                stage.close();
+            creatorTable.put("Trade quarter", () -> {
+                setFieldsForQuarter();
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(110);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty()) return;
+                    try {
+                        TradeQuarter card = new TradeQuarter(nameField.getText(), Integer.parseInt(costField.getText()));
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().addAll(addBtn);
             });
-            anchorPane.getChildren().addAll(addBtn, descField, descLbl);
-        });
-        ObservableList<String> classList = FXCollections.observableArrayList("Hero card", "Common quarter", "Military quarter", "Noble quarter", "Spiritual quarter", "Trade quarter", "Unique quarter");
-        cardSelector.setItems(classList);
-        cardSelector.setValue("Select card");
+            creatorTable.put("Unique quarter", () -> {
+                setFieldsForQuarter();
+                Label descLbl = new Label("Description:");
+                descLbl.setLayoutX(20);
+                descLbl.setLayoutY(110);
+                descField = new TextArea();
+                descField.setLayoutX(100);
+                descField.setLayoutY(110);
+                Button addBtn = new Button("Add card");
+                addBtn.setLayoutX(20);
+                addBtn.setLayoutY(300);
+                addBtn.setOnAction(e -> {
+                    if (nameField.getText().trim().isEmpty() || descField.getText().trim().isEmpty()) return;
+                    try {
+                        UniqueQuarter card = new UniqueQuarter(nameField.getText(), Integer.parseInt(costField.getText()), descField.getText());
+                        Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                    } catch (Exception ex) {
+                        return;
+                    }
+                    Stage stage = (Stage) addBtn.getScene().getWindow();
+                    stage.close();
+                });
+                anchorPane.getChildren().addAll(addBtn, descField, descLbl);
+            });
+            ObservableList<String> classList = FXCollections.observableArrayList("Hero card", "Common quarter", "Military quarter", "Noble quarter", "Spiritual quarter", "Trade quarter", "Unique quarter");
+            cardSelector.setItems(classList);
+            cardSelector.setValue("Select card");
+        } else {
+            anchorPane.getChildren().clear();
+            Controller.tableDataList.get(Controller.selectedIndex).getObj().setEditFields(this);
+            Controller.isEditing = false;
+        }
     }
 
     @FXML
-     public void cardSelect() {
+    public void cardSelect() {
         anchorPane.getChildren().clear();
         creatorTable.get(cardSelector.getValue()).createCard();
     }

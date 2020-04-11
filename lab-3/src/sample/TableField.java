@@ -1,19 +1,21 @@
 package sample;
 
+import Card.Card;
+
 public class TableField {
-    private Object obj;
+    private Card obj;
     private int hshCode;
 
-    public TableField(Object obj, int hshCode) {
+    public TableField(Card obj, int hshCode) {
         this.obj = obj;
         this.hshCode = hshCode;
     }
 
-    public Object getObj() {
+    public Card getObj() {
         return obj;
     }
 
-    public void setObj(Object obj) {
+    public void setObj(Card obj) {
         this.obj = obj;
     }
 

@@ -1,6 +1,7 @@
 package Card;
 
 import CardType.CardType;
+import sample.CardController;
 
 public abstract class Card {
     private String name;
@@ -11,19 +12,23 @@ public abstract class Card {
         setType(type);
     }
 
-    protected void setName(String name) {
+    public Card(){};
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
-    protected void setType(CardType type) {
+    public void setType(CardType type) {
         this.type = type;
     }
 
-    protected CardType getType() {
+    public CardType getType() {
         return this.type;
     }
+
+    public abstract void setEditFields(CardController controller);
 }

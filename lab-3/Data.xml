@@ -2,13 +2,13 @@
 <java version="11.0.4" class="java.beans.XMLDecoder">
  <object class="HeroCard.HeroCard">
   <void property="name">
-   <string>qwqwe</string>
+   <string>Assasin</string>
   </void>
   <void property="skillDescription">
-   <string>sadfsdfxvccx</string>
+   <string>Kill</string>
   </void>
   <void property="turnValue">
-   <int>22</int>
+   <int>1</int>
   </void>
   <void property="type">
    <object class="java.lang.Enum" id="CardType0" method="valueOf">
@@ -17,26 +17,68 @@
    </object>
   </void>
  </object>
- <object class="CommonQuarter.CommonQuarter">
-  <void property="cost">
-   <int>1</int>
-  </void>
+ <object class="HeroCard.HeroCard">
   <void property="name">
-   <string>111</string>
+   <string>Mage</string>
+  </void>
+  <void property="skillDescription">
+   <string>Exchange cards</string>
+  </void>
+  <void property="turnValue">
+   <int>2</int>
   </void>
   <void property="type">
    <object idref="CardType0"/>
   </void>
  </object>
- <object class="HeroCard.HeroCard">
+ <object class="NobleQuarter.NobleQuarter">
+  <void property="cost">
+   <int>3</int>
+  </void>
   <void property="name">
-   <string>123123</string>
+   <string>Manshion</string>
   </void>
-  <void property="skillDescription">
-   <string>dscscxx </string>
+  <void property="type">
+   <object class="java.lang.Enum" id="CardType1" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>NOBLE</string>
+   </object>
   </void>
-  <void property="turnValue">
+ </object>
+ <object class="NobleQuarter.NobleQuarter">
+  <void property="cost">
+   <int>4</int>
+  </void>
+  <void property="name">
+   <string>Castle</string>
+  </void>
+  <void property="type">
+   <object idref="CardType1"/>
+  </void>
+ </object>
+ <object class="UniqueQuarter.UniqueQuarter">
+  <void property="cost">
+   <int>6</int>
+  </void>
+  <void property="description">
+   <string>Get cards</string>
+  </void>
+  <void property="name">
+   <string>Park</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>UNIQUE</string>
+   </object>
+  </void>
+ </object>
+ <object class="SpiritualQuarter.SpiritualQuarter">
+  <void property="cost">
    <int>2</int>
+  </void>
+  <void property="name">
+   <string>Church</string>
   </void>
   <void property="type">
    <object class="java.lang.Enum" method="valueOf">
@@ -45,21 +87,18 @@
    </object>
   </void>
  </object>
- <object class="UniqueQuarter.UniqueQuarter">
-  <void property="cost">
-   <int>12313</int>
-  </void>
-  <void property="description">
-   <string>dsdddd</string>
-  </void>
+ <object class="HeroCard.HeroCard">
   <void property="name">
-   <string>dasdasd</string>
+   <string>King</string>
+  </void>
+  <void property="skillDescription">
+   <string>Get crown and coin</string>
+  </void>
+  <void property="turnValue">
+   <int>4</int>
   </void>
   <void property="type">
-   <object class="java.lang.Enum" method="valueOf">
-    <class>CardType.CardType</class>
-    <string>UNIQUE</string>
-   </object>
+   <object idref="CardType1"/>
   </void>
  </object>
 </java>
