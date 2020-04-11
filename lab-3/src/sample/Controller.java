@@ -1,21 +1,31 @@
 package sample;
 
+import Card.Card;
+import CommonQuarter.CommonQuarter;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.*;
 
 public class Controller {
 
-    public ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
+    public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
     @FXML
-    public TableView<TableField> cardsTable;
+    private TableView<TableField> cardsTable;
     @FXML
-    public TableColumn<TableField,Object> nameColumn;
+    private TableColumn<TableField,Object> nameColumn;
     @FXML
-    public TableColumn<TableField, Integer> hashCodeColumn;
+    private TableColumn<TableField, Integer> hashCodeColumn;
 
     @FXML
     private void initialize() {
@@ -25,24 +35,46 @@ public class Controller {
     }
 
     @FXML
-    public void saveToFile() throws Exception{
+    public void saveToFile() throws Exception {
+        XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("Data.xml")));
+        for (TableField field : cardsTable.getItems()) {
+            encoder.writeObject(field.getObj());
+        }
+        encoder.close();
     }
 
     @FXML
-    public void loadFromFile() throws Exception{
+    public void loadFromFile() throws Exception {
+        XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("Data.xml")));
+        while (true) {
+            try {
+                Card tmp = (Card) decoder.readObject();
+                tableDataList.add(new TableField(tmp, tmp.hashCode()));
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                decoder.close();
+                break;
+            }
+        }
     }
 
     @FXML
     public void addCard() throws Exception{
-        Object obj = new Object();
-        tableDataList.add(new TableField(obj, obj.hashCode()));
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("CardForm.fxml"));
+        primaryStage.setTitle("Lab3");
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.show();
     }
 
     @FXML
     public void editCard() throws Exception{
+        int selectIndex = cardsTable.getSelectionModel().getSelectedIndex();
+        if (selectIndex != -1) cardsTable.getItems().remove(selectIndex);
     }
 
     @FXML
     public void deleteCard() throws Exception{
+        int selectIndex = cardsTable.getSelectionModel().getSelectedIndex();
+        if (selectIndex != -1) cardsTable.getItems().remove(selectIndex);
     }
 }

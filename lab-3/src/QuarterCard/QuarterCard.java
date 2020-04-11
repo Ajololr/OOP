@@ -11,11 +11,13 @@ public abstract class QuarterCard extends Card {
         setCost(cost);
     }
 
-    protected void setCost(int cost) {
+    public QuarterCard(){};
+
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    protected int getCost() {
+    public int getCost() {
         return this.cost;
     }
 }

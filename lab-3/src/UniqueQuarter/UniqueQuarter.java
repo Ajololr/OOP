@@ -10,6 +10,7 @@ public class UniqueQuarter extends QuarterCard {
         super(name, CardType.UNIQUE, cost);
         this.description = description;
     }
+    public UniqueQuarter(){};
 
     public void setDescription(String description) {
         this.description = description;

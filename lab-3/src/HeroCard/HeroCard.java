@@ -4,21 +4,22 @@ import Card.Card;
 import CardType.CardType;
 
 public class HeroCard extends Card {
-    private int termValue;
+    private int turnValue;
     private String skillDescription;
 
-    public HeroCard(String name, CardType type, int termValue, String skillDescription) {
+    public HeroCard(String name, CardType type, int turnValue, String skillDescription) {
         super(name, type);
-        setTermValue(termValue);
+        setTurnValue(turnValue);
         setSkillDescription(skillDescription);
     }
+    public HeroCard(){};
 
-    public void setTermValue(int termValue) {
-        this.termValue = termValue;
+    public void setTurnValue(int termValue) {
+        this.turnValue = termValue;
     }
 
-    public int getTermValue() {
-        return this.termValue;
+    public int getTurnValue() {
+        return this.turnValue;
     }
 
     public String getSkillDescription() {
@@ -27,5 +28,9 @@ public class HeroCard extends Card {
 
     public void setSkillDescription(String skillDescription) {
         this.skillDescription = skillDescription;
+    }
+
+    public static void setFields() {
+
     }
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.4" class="java.beans.XMLDecoder">
+ <object class="HeroCard.HeroCard">
+  <void property="name">
+   <string>qwqwe</string>
+  </void>
+  <void property="skillDescription">
+   <string>sadfsdfxvccx</string>
+  </void>
+  <void property="turnValue">
+   <int>22</int>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" id="CardType0" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>COMMON</string>
+   </object>
+  </void>
+ </object>
+ <object class="CommonQuarter.CommonQuarter">
+  <void property="cost">
+   <int>1</int>
+  </void>
+  <void property="name">
+   <string>111</string>
+  </void>
+  <void property="type">
+   <object idref="CardType0"/>
+  </void>
+ </object>
+ <object class="HeroCard.HeroCard">
+  <void property="name">
+   <string>123123</string>
+  </void>
+  <void property="skillDescription">
+   <string>dscscxx </string>
+  </void>
+  <void property="turnValue">
+   <int>2</int>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>SPIRITUAL</string>
+   </object>
+  </void>
+ </object>
+ <object class="UniqueQuarter.UniqueQuarter">
+  <void property="cost">
+   <int>12313</int>
+  </void>
+  <void property="description">
+   <string>dsdddd</string>
+  </void>
+  <void property="name">
+   <string>dasdasd</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>UNIQUE</string>
+   </object>
+  </void>
+ </object>
+</java>

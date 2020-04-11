@@ -7,4 +7,5 @@ public class NobleQuarter extends QuarterCard {
     public NobleQuarter(String name, int cost) {
         super(name, CardType.NOBLE, cost);
     }
+    public NobleQuarter(){};
 }

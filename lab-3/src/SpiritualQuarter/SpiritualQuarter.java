@@ -7,4 +7,5 @@ public class SpiritualQuarter extends QuarterCard {
     public SpiritualQuarter(String name, int cost) {
         super(name, CardType.SPIRITUAL, cost);
     }
+    public SpiritualQuarter(){};
 }

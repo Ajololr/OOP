@@ -7,4 +7,5 @@ public class TradeQuarter extends QuarterCard {
     public TradeQuarter(String name, int cost) {
         super(name, CardType.TRADE, cost);
     }
+    public TradeQuarter(){};
 }

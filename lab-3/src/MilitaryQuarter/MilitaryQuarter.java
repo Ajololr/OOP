@@ -7,4 +7,5 @@ public class MilitaryQuarter extends QuarterCard {
     public MilitaryQuarter(String name, int cost) {
         super(name, CardType.MILITARY, cost);
     }
+    public MilitaryQuarter(){};
 }
