@@ -17,7 +17,7 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 
-public class Controller {
+public class Controller implements Controlable, XMLFileControl {
     public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
     public static int selectedIndex;
     public static boolean isEditing = false;
@@ -29,7 +29,7 @@ public class Controller {
     private TableColumn<TableField, Integer> hashCodeColumn;
 
     @FXML
-    private void initialize() {
+    public void initialize() {
         nameColumn.setCellValueFactory(data -> new ReadOnlyObjectWrapper<>(data.getValue().getObj()));
         hashCodeColumn.setCellValueFactory(data -> new ReadOnlyObjectWrapper<>(data.getValue().getHshCode()));
         cardsTable.setItems(tableDataList);
