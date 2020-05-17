@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.4" class="java.beans.XMLDecoder">
+ <object class="HeroCard.HeroCard">
+  <void property="name">
+   <string>Assasin</string>
+  </void>
+  <void property="skillDescription">
+   <string>Kill</string>
+  </void>
+  <void property="turnValue">
+   <int>1</int>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" id="CardType0" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>COMMON</string>
+   </object>
+  </void>
+ </object>
+ <object class="HeroCard.HeroCard">
+  <void property="name">
+   <string>Mage</string>
+  </void>
+  <void property="skillDescription">
+   <string>Exchange cards</string>
+  </void>
+  <void property="turnValue">
+   <int>2</int>
+  </void>
+  <void property="type">
+   <object idref="CardType0"/>
+  </void>
+ </object>
+ <object class="NobleQuarter.NobleQuarter">
+  <void property="cost">
+   <int>3</int>
+  </void>
+  <void property="name">
+   <string>Manshion</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" id="CardType1" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>NOBLE</string>
+   </object>
+  </void>
+ </object>
+ <object class="NobleQuarter.NobleQuarter">
+  <void property="cost">
+   <int>4</int>
+  </void>
+  <void property="name">
+   <string>Castle</string>
+  </void>
+  <void property="type">
+   <object idref="CardType1"/>
+  </void>
+ </object>
+ <object class="UniqueQuarter.UniqueQuarter">
+  <void property="cost">
+   <int>6</int>
+  </void>
+  <void property="description">
+   <string>Get cards</string>
+  </void>
+  <void property="name">
+   <string>Park</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>UNIQUE</string>
+   </object>
+  </void>
+ </object>
+ <object class="SpiritualQuarter.SpiritualQuarter">
+  <void property="cost">
+   <int>2</int>
+  </void>
+  <void property="name">
+   <string>Church</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>SPIRITUAL</string>
+   </object>
+  </void>
+ </object>
+ <object class="HeroCard.HeroCard">
+  <void property="name">
+   <string>King</string>
+  </void>
+  <void property="skillDescription">
+   <string>Get crown and coin</string>
+  </void>
+  <void property="turnValue">
+   <int>4</int>
+  </void>
+  <void property="type">
+   <object idref="CardType1"/>
+  </void>
+ </object>
+</java>
