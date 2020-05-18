@@ -78,7 +78,7 @@ public class CardController {
     }
 
     @FXML
-    private void initialize() throws ClassNotFoundException {
+    public void initialize() throws ClassNotFoundException {
         if (!Controller.isEditing) {
             creatorTable.put("Hero card", () -> {
                 this.setFieldsForHero();

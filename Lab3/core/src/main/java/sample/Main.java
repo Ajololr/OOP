@@ -19,14 +19,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Lab3");
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("sample.fxml"));
+        primaryStage.setTitle("Lab 4");
         primaryStage.setScene(new Scene(root, 450, 500));
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        Path pluginsDir = Paths.get("");
+        Path pluginsDir = Paths.get("D:\\University\\4 semester\\OOP\\Lab3\\core\\src\\main\\plugins");
 
         ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
 

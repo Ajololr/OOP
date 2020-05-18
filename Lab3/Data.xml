@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.4" class="java.beans.XMLDecoder">
+ <object class="CommonQuarter.CommonQuarter">
+  <void property="cost">
+   <int>4</int>
+  </void>
+  <void property="name">
+   <string>123</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>COMMON</string>
+   </object>
+  </void>
+ </object>
+ <object class="UniqueQuarter.UniqueQuarter">
+  <void property="cost">
+   <int>123</int>
+  </void>
+  <void property="description">
+   <string>4</string>
+  </void>
+  <void property="name">
+   <string>123</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>UNIQUE</string>
+   </object>
+  </void>
+ </object>
+</java>

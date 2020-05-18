@@ -61,8 +61,8 @@ public class Controller implements Controlable, XMLFileControl {
     @FXML
     public void addCard() throws Exception{
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("CardForm.fxml"));
-        primaryStage.setTitle("Lab3");
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CardForm.fxml"));
+        primaryStage.setTitle("Lab 4");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
@@ -73,8 +73,8 @@ public class Controller implements Controlable, XMLFileControl {
         if (selectedIndex != -1) {
             isEditing = true;
             Stage primaryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("CardForm.fxml"));
-            primaryStage.setTitle("Lab3");
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CardForm.fxml"));
+            primaryStage.setTitle("Lab 4");
             primaryStage.setScene(new Scene(root, 600, 400));
             primaryStage.show();
         }

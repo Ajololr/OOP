@@ -43,8 +43,6 @@ public class HeroCard extends Card {
         controller.typeField.setValue(this.getType());
     }
 
-    ;
-
     public void setTurnValue(int termValue) {
         this.turnValue = termValue;
     }
