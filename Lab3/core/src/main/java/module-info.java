@@ -1,6 +1,5 @@
 import sample.BasicService;
 import sample.IService;
-import Card.Card;
 import sample.SerializationService;
 
 open module core {

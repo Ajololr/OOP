@@ -1,6 +1,8 @@
 package sample;
 
 import Card.Card;
+import Serialization.Serialization;
+import XMLSerialisation.XMLSerialisation;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,12 +19,13 @@ import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
+import java.util.LinkedList;
 
-public class Controller implements Controlable, XMLFileControl {
+public class Controller implements Controlable {
     public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
     public static int selectedIndex;
     public static boolean isEditing = false;
-    private String serializationName = "XML";
+    private Serialization serialization = new XMLSerialisation();
     @FXML
     public MenuBar menyBar;
     @FXML
@@ -39,16 +42,17 @@ public class Controller implements Controlable, XMLFileControl {
         cardsTable.setItems(tableDataList);
         ToggleGroup toggleGroup = new ToggleGroup();
         Menu main = new Menu("Serialization");
-        RadioMenuItem miXML = new RadioMenuItem("XML");
+        RadioMenuItem miXML = new RadioMenuItem(serialization.getSerialisationName());
         miXML.setOnAction((ActionEvent) -> {
-                System.out.println("radio toggled");
+            serialization = new XMLSerialisation();
         });
         miXML.setSelected(true);
-        RadioMenuItem miJSON = new RadioMenuItem("JSON");
 
+        RadioMenuItem miJSON = new RadioMenuItem("JSON");
         miJSON.setOnAction((ActionEvent) -> {
             System.out.println("radio toggled");
         });
+
         miXML.setToggleGroup(toggleGroup);
         miJSON.setToggleGroup(toggleGroup);
         main.getItems().addAll(miXML, miJSON);
@@ -57,32 +61,19 @@ public class Controller implements Controlable, XMLFileControl {
 
     @FXML
     public void saveToFile() throws Exception {
-        XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("Data.xml")));
+        LinkedList<Card> cards = new LinkedList<>();
         for (TableField field : cardsTable.getItems()) {
-            encoder.writeObject(field.getObj());
+            cards.add(field.getObj());
         }
-        encoder.close();
+        serialization.saveToFile(cards);
     }
 
     @FXML
     public void loadFromFile() throws Exception {
-        XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("Data.xml")));
-        decoder.setExceptionListener(new ExceptionListener() {
-            @Override
-            public void exceptionThrown(Exception e) {
-                System.out.println("got exception. e=" + e);
-                e.printStackTrace();
-            }
-        });
         tableDataList.clear();
-        while (true) {
-            try {
-                Card tmp = (Card) decoder.readObject();
-                tableDataList.add(new TableField(tmp, tmp.hashCode()));
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                decoder.close();
-                break;
-            }
+        LinkedList<Card> result = serialization.loadFromFile();
+        for (Card card : result) {
+            tableDataList.add(new TableField(card, card.hashCode()));
         }
     }
 

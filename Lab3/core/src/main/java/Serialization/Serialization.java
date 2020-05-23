@@ -1,4 +1,6 @@
 package Serialization;
 
-abstract public class Serialization {
+import FileControl.FileControl;
+
+abstract public class Serialization implements FileControl {
 }
