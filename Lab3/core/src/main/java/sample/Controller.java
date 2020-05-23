@@ -47,15 +47,18 @@ public class Controller implements Controlable {
             serialization = new XMLSerialisation();
         });
         miXML.setSelected(true);
-
-        RadioMenuItem miJSON = new RadioMenuItem("JSON");
-        miJSON.setOnAction((ActionEvent) -> {
-            System.out.println("radio toggled");
-        });
-
         miXML.setToggleGroup(toggleGroup);
-        miJSON.setToggleGroup(toggleGroup);
-        main.getItems().addAll(miXML, miJSON);
+        main.getItems().add(miXML);
+
+        for (Serialization serialization : Main.serializations) {
+            RadioMenuItem menuItem = new RadioMenuItem(serialization.getSerialisationName());
+            menuItem.setOnAction((ActionEvent) -> {
+                this.serialization = serialization;
+            });
+            menuItem.setToggleGroup(toggleGroup);
+            main.getItems().add(menuItem);
+        }
+
         menyBar.getMenus().add(main);
     }
 

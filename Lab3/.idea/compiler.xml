@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
-        <module name="secondPlugin" />
         <module name="firstPlugin" />
+        <module name="secondPlugin" />
+        <module name="JSONSerializationPlugin" />
       </profile>
     </annotationProcessing>
   </component>

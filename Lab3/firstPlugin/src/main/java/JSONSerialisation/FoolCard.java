@@ -1,4 +1,4 @@
-package FoolCard;
+package JSONSerialisation;
 
 import Card.Card;
 import javafx.collections.FXCollections;
@@ -117,6 +117,7 @@ public class FoolCard extends Card implements IService, Serializable {
 
     @Override
     public Card doJob() {
+        System.out.println("Fool card service");
         return new FoolCard();
     }
 }

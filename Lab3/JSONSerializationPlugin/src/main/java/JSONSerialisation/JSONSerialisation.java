@@ -1,0 +1,37 @@
+package JSONSerialisation;
+
+import Card.Card;
+import Serialization.Serialization;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import sample.*;
+
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+
+public class JSONSerialisation extends Serialization implements SerializationService {
+    @Override
+    public void saveToFile(LinkedList<Card> cards) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.writeValue(new File("Data.json"), cards);
+    }
+
+    @Override
+    public LinkedList<Card> loadFromFile() throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+//        String json = (new File("Data.json")).toString();
+        LinkedList<Card> result = objectMapper.readValue(new File("Data.json"), new TypeReference<LinkedList<Card>>(){});
+        return result;
+    }
+
+    @Override
+    public String getSerialisationName() {
+        return "JSON";
+    }
+
+    @Override
+    public Serialization getSerialisationObj() {
+        return new JSONSerialisation();
+    }
+}

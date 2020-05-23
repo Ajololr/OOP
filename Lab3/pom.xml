@@ -12,6 +12,7 @@
         <module>core</module>
         <module>firstPlugin</module>
         <module>secondPlugin</module>
+        <module>JSONSerializationPlugin</module>
     </modules>
 
     <build>

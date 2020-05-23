@@ -1,4 +1,4 @@
-package FoolCard;
+package JSONSerialisation;
 
 public enum FoolCardType {
     CHIRVA,

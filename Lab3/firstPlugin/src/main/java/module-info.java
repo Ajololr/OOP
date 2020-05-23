@@ -3,7 +3,7 @@ import sample.IService;
 module firstPlugin {
     requires core;
     requires javafx.controls;
-    exports FoolCard;
+    exports JSONSerialisation;
 
-    provides IService with FoolCard.FoolCard;
+    provides IService with JSONSerialisation.FoolCard;
 }

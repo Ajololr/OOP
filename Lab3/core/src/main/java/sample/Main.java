@@ -31,7 +31,36 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
+    private static void importSerialization(String[] args) {
+        Path pluginsDir = Paths.get("D:\\University\\4 semester\\OOP\\Lab3\\core\\src\\main\\serializations");
+
+        ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
+
+        List<String> plugins = pluginsFinder
+                .findAll()
+                .stream()
+                .map(ModuleReference::descriptor)
+                .map(ModuleDescriptor::name)
+                .collect(Collectors.toList());
+
+        Configuration pluginsConfiguration = ModuleLayer
+                .boot()
+                .configuration()
+                .resolve(pluginsFinder, ModuleFinder.of(), plugins);
+
+        ModuleLayer layer = ModuleLayer
+                .boot()
+                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
+
+        List<SerializationService> serializationServices = SerializationService.getServices(layer);
+        for (SerializationService service : serializationServices) {
+            serializations.add(service.getSerialisationObj());
+        }
+
+        launch(args);
+    }
+
+    private static void importCards(String[] args) {
         Path pluginsDir = Paths.get("D:\\University\\4 semester\\OOP\\Lab3\\core\\src\\main\\plugins");
 
         ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
@@ -52,16 +81,18 @@ public class Main extends Application {
                 .boot()
                 .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
 
+
         List<IService> services = IService.getServices(layer);
         for (IService service : services) {
             cards.add(service.doJob());
         }
+    }
 
-        List<SerializationService> serializationServices = SerializationService.getServices(layer);
-        for (SerializationService service : serializationServices) {
-            serializations.add(service.getSerialisationObj());
-        }
 
-        launch(args);
+
+
+    public static void main(String[] args) {
+            importCards(args);
+            importSerialization(args);
     }
 }

@@ -1,36 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="11.0.4" class="java.beans.XMLDecoder">
- <object class="TradeQuarter.TradeQuarter">
-  <void property="cost">
-   <int>123</int>
-  </void>
-  <void property="name">
-   <string>asdads</string>
-  </void>
-  <void property="type">
-   <object class="java.lang.Enum" method="valueOf">
-    <class>CardType.CardType</class>
-    <string>TRADE</string>
-   </object>
-  </void>
- </object>
- <object class="HeroCard.HeroCard">
-  <void property="name">
-   <string>d</string>
-  </void>
-  <void property="skillDescription">
-   <string>222</string>
-  </void>
-  <void property="turnValue">
-   <int>3</int>
-  </void>
-  <void property="type">
-   <object class="java.lang.Enum" method="valueOf">
-    <class>CardType.CardType</class>
-    <string>NOBLE</string>
-   </object>
-  </void>
- </object>
  <object class="uno.UnoCard" id="UnoCard0">
   <void class="uno.UnoCard" method="getField">
    <string>type</string>
@@ -38,7 +7,7 @@
     <object idref="UnoCard0"/>
     <object class="java.lang.Enum" method="valueOf">
      <class>uno.UnoCardColor</class>
-     <string>BLUE</string>
+     <string>YELLOW</string>
     </object>
    </void>
   </void>
@@ -46,7 +15,7 @@
    <string>unoCardValue</string>
    <void method="set">
     <object idref="UnoCard0"/>
-    <string>asdasd</string>
+    <string>6</string>
    </void>
   </void>
  </object>

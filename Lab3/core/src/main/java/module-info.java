@@ -8,6 +8,9 @@ open module core {
     requires javafx.controls;
     requires java.desktop;
     requires javafx.base;
+    requires com.fasterxml.jackson.annotation;
+    requires com.fasterxml.jackson.core;
+    requires com.fasterxml.jackson.databind;
 
     exports sample;
     exports HeroCard;
