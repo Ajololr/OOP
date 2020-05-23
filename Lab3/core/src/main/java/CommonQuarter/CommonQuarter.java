@@ -17,6 +17,11 @@ public class CommonQuarter extends QuarterCard {
     public CommonQuarter(){}
 
     @Override
+    public String getCardName() {
+        return "Common quarter";
+    }
+
+    @Override
     public void setEditFields(CardController controller) {
         setFieldsForQuarter(controller);
         Button addBtn = new Button("Edit card");

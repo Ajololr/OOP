@@ -40,6 +40,11 @@ public class NobleQuarter extends QuarterCard {
     }
 
     @Override
+    public String getCardName() {
+        return "Noble quarter";
+    }
+
+    @Override
     public void setAddFields(CardController controller) {
         setFieldsForQuarter(controller);
 

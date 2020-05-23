@@ -38,6 +38,11 @@ public class SpiritualQuarter extends QuarterCard {
     }
 
     @Override
+    public String getCardName() {
+        return "Spiritual quarter";
+    }
+
+    @Override
     public void setAddFields(CardController controller) {
         setFieldsForQuarter(controller);
 

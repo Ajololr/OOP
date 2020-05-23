@@ -40,6 +40,11 @@ public class MilitaryQuarter extends QuarterCard {
     }
 
     @Override
+    public String getCardName() {
+        return "Military quarter";
+    }
+
+    @Override
     public void setAddFields(CardController controller) {
         setFieldsForQuarter(controller);
 

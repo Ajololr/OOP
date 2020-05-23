@@ -1,5 +1,6 @@
 package sample;
 
+import Card.Card;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,10 +13,12 @@ import java.lang.module.ModuleFinder;
 import java.lang.module.ModuleReference;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main extends Application {
+    public static LinkedList<Card> cards = new LinkedList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -48,7 +51,7 @@ public class Main extends Application {
 
         List<IService> services = IService.getServices(layer);
         for (IService service : services) {
-            service.doJob();
+            cards.add(service.doJob());
         }
 
         launch(args);

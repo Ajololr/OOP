@@ -13,9 +13,11 @@ import sample.TableField;
 public class HeroCard extends Card {
     private int turnValue;
     private String skillDescription;
+    private CardType type;
 
     public HeroCard(String name, CardType type, int turnValue, String skillDescription) {
-        super(name, type);
+        super(name);
+        setType(type);
         setTurnValue(turnValue);
         setSkillDescription(skillDescription);
     }
@@ -30,7 +32,7 @@ public class HeroCard extends Card {
         addBtn.setOnAction(e -> {
             if (controller.nameField.getText().trim().isEmpty() || controller.skillField.getText().trim().isEmpty()) return;
             try {
-                HeroCard card = new HeroCard(controller.nameField.getText(), controller.typeField.getValue(), Integer.parseInt(controller.turnField.getText()), controller.skillField.getText());
+                HeroCard card = new HeroCard(controller.nameField.getText(),(CardType) controller.typeField.getValue(), Integer.parseInt(controller.turnField.getText()), controller.skillField.getText());
                 Controller.tableDataList.set(Controller.selectedIndex, new TableField(card, card.hashCode()));
             } catch (Exception ex) {
                 return;
@@ -45,6 +47,19 @@ public class HeroCard extends Card {
         controller.typeField.setValue(this.getType());
     }
 
+    public void setType(CardType type) {
+        this.type = type;
+    }
+
+    public CardType getType() {
+        return this.type;
+    }
+
+    @Override
+    public String getCardName() {
+        return "Hero card";
+    }
+
     private void setFieldsForHero(CardController controller) {
         Label nameLbl = new Label("Name:");
         nameLbl.setLayoutX(20);
@@ -55,12 +70,12 @@ public class HeroCard extends Card {
         Label typeLbl = new Label("Type:");
         typeLbl.setLayoutX(20);
         typeLbl.setLayoutY(80);
-        controller.typeField = new ComboBox<>();
+        ComboBox<CardType> typeField = new ComboBox<>();
         ObservableList<CardType> typeList = FXCollections.observableArrayList(CardType.COMMON, CardType.MILITARY, CardType.NOBLE, CardType.SPIRITUAL, CardType.TRADE);
-        controller.typeField.setItems(typeList);
-        controller.typeField.setValue(CardType.COMMON);
-        controller.typeField.setLayoutX(60);
-        controller.typeField.setLayoutY(80);
+        typeField.setItems(typeList);
+        typeField.setValue(CardType.COMMON);
+        typeField.setLayoutX(60);
+        typeField.setLayoutY(80);
         Label turnLbl = new Label("Turn:");
         turnLbl.setLayoutX(20);
         turnLbl.setLayoutY(110);
@@ -73,7 +88,7 @@ public class HeroCard extends Card {
         controller.skillField = new TextArea();
         controller.skillField.setLayoutX(60);
         controller.skillField.setLayoutY(140);
-        controller.anchorPane.getChildren().addAll(nameLbl, termLbl, turnLbl, typeLbl, controller.nameField, controller.skillField, controller.turnField, controller.typeField);
+        controller.anchorPane.getChildren().addAll(nameLbl, termLbl, turnLbl, typeLbl, controller.nameField, controller.skillField, controller.turnField, typeField);
     }
 
 
@@ -87,7 +102,7 @@ public class HeroCard extends Card {
         addBtn.setOnAction(e -> {
             if (controller.nameField.getText().trim().isEmpty() || controller.skillField.getText().trim().isEmpty()) return;
             try {
-                HeroCard card = new HeroCard(controller.nameField.getText(), controller.typeField.getValue(), Integer.parseInt(controller.turnField.getText()), controller.skillField.getText());
+                HeroCard card = new HeroCard(controller.nameField.getText(), (CardType) controller.typeField.getValue(), Integer.parseInt(controller.turnField.getText()), controller.skillField.getText());
                 Controller.tableDataList.add(new TableField(card, card.hashCode()));
             } catch (Exception ex) {
                 return;

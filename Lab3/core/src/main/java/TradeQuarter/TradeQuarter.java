@@ -38,6 +38,11 @@ public class TradeQuarter extends QuarterCard {
     }
 
     @Override
+    public String getCardName() {
+        return "Trade quarter";
+    }
+
+    @Override
     public void setAddFields(CardController controller) {
         setFieldsForQuarter(controller);
 

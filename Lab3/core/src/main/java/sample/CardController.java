@@ -1,5 +1,6 @@
 package sample;
 
+import Card.Card;
 import CardType.CardType;
 import CommonQuarter.CommonQuarter;
 import Creator.Creator;
@@ -22,7 +23,7 @@ public class CardController {
     public Map<String, Creator> creatorTable = new HashMap<>();
     public TextField nameField, costField, turnField;
     public TextArea skillField, descField;
-    public ComboBox<CardType> typeField;
+    public ComboBox<Enum> typeField;
 
     @FXML
     public ComboBox<String> cardSelector;
@@ -55,6 +56,14 @@ public class CardController {
                 (new UniqueQuarter()).setAddFields(this);
             });
             ObservableList<String> classList = FXCollections.observableArrayList("Hero card", "Common quarter", "Military quarter", "Noble quarter", "Spiritual quarter", "Trade quarter", "Unique quarter");
+            for (Card card : Main.cards) {
+                if (card != null) {
+                    classList.add(card.getCardName());
+                    creatorTable.put(card.getCardName(), () -> {
+                        card.setAddFields(this);
+                    });
+                }
+            }
             cardSelector.setItems(classList);
             cardSelector.setValue("Select card");
         } else {

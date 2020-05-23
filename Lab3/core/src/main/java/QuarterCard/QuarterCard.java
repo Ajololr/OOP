@@ -8,10 +8,20 @@ import sample.CardController;
 
 public abstract class QuarterCard extends Card {
     private int cost;
+    private CardType type;
 
     public QuarterCard(String name, CardType type, int cost) {
-        super(name, type);
+        super(name);
+        setType(type);
         setCost(cost);
+    }
+
+    public void setType(CardType type) {
+        this.type = type;
+    }
+
+    public CardType getType() {
+        return this.type;
     }
 
     public QuarterCard(){};

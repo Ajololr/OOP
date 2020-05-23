@@ -8,10 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -20,6 +21,8 @@ public class Controller implements Controlable, XMLFileControl {
     public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
     public static int selectedIndex;
     public static boolean isEditing = false;
+    @FXML
+    VBox vbMenu = new VBox();
     @FXML
     public TableView<TableField> cardsTable;
     @FXML
@@ -46,6 +49,13 @@ public class Controller implements Controlable, XMLFileControl {
     @FXML
     public void loadFromFile() throws Exception {
         XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("Data.xml")));
+        decoder.setExceptionListener(new ExceptionListener() {
+            @Override
+            public void exceptionThrown(Exception e) {
+                System.out.println("got exception. e=" + e);
+                e.printStackTrace();
+            }
+        });
         tableDataList.clear();
         while (true) {
             try {

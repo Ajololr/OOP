@@ -17,6 +17,12 @@ public class UniqueQuarter extends QuarterCard {
         super(name, CardType.UNIQUE, cost);
         this.description = description;
     }
+
+    @Override
+    public String getCardName() {
+        return "Unique quarter";
+    }
+
     public UniqueQuarter(){}
 
     @Override

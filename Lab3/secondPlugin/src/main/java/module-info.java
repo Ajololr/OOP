@@ -1,8 +1,10 @@
-import fool.cards.FoolCard;
 import sample.IService;
+import uno.UnoCard;
 
 module secondPlugin {
     requires core;
+    requires javafx.controls;
+    exports uno;
 
-    provides IService with FoolCard;
+    provides IService with UnoCard;
 }

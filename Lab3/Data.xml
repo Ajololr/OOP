@@ -2,10 +2,10 @@
 <java version="11.0.4" class="java.beans.XMLDecoder">
  <object class="CommonQuarter.CommonQuarter">
   <void property="cost">
-   <int>4</int>
+   <int>6</int>
   </void>
   <void property="name">
-   <string>123</string>
+   <string>tyt</string>
   </void>
   <void property="type">
    <object class="java.lang.Enum" method="valueOf">
@@ -14,21 +14,23 @@
    </object>
   </void>
  </object>
- <object class="UniqueQuarter.UniqueQuarter">
-  <void property="cost">
-   <int>123</int>
+ <object class="FoolCard.FoolCard" id="FoolCard0">
+  <void class="FoolCard.FoolCard" method="getField">
+   <string>type</string>
+   <void method="set">
+    <object idref="FoolCard0"/>
+    <object class="java.lang.Enum" method="valueOf">
+     <class>FoolCard.FoolCardType</class>
+     <string>BUBA</string>
+    </object>
+   </void>
   </void>
-  <void property="description">
-   <string>4</string>
-  </void>
-  <void property="name">
-   <string>123</string>
-  </void>
-  <void property="type">
-   <object class="java.lang.Enum" method="valueOf">
-    <class>CardType.CardType</class>
-    <string>UNIQUE</string>
-   </object>
+  <void class="FoolCard.FoolCard" method="getField">
+   <string>foolCardValue</string>
+   <void method="set">
+    <object idref="FoolCard0"/>
+    <string>123</string>
+   </void>
   </void>
  </object>
 </java>
