@@ -7,11 +7,15 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
 <AnchorPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+    <MenuBar fx:id="menyBar">
+    </MenuBar>
     <children>
-        <Button text="Load from file" layoutY="20" layoutX="20" onAction="#loadFromFile"/>
-        <Button text="Save to file" layoutY="20" layoutX="300" onAction="#saveToFile"/>
+        <Button text="Load from file" layoutY="30" layoutX="20" onAction="#loadFromFile"/>
+        <Button text="Save to file" layoutY="30" layoutX="300" onAction="#saveToFile"/>
         <TableView fx:id="cardsTable" layoutX="20.0" layoutY="60.0" minHeight="400" maxWidth="400">
             <columns>
                 <TableColumn fx:id="nameColumn" minWidth="200" text="Name"/>

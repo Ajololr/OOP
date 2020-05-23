@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
@@ -21,8 +22,9 @@ public class Controller implements Controlable, XMLFileControl {
     public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
     public static int selectedIndex;
     public static boolean isEditing = false;
+    private String serializationName = "XML";
     @FXML
-    VBox vbMenu = new VBox();
+    public MenuBar menyBar;
     @FXML
     public TableView<TableField> cardsTable;
     @FXML
@@ -35,6 +37,22 @@ public class Controller implements Controlable, XMLFileControl {
         nameColumn.setCellValueFactory(data -> new ReadOnlyObjectWrapper<>(data.getValue().getObj()));
         hashCodeColumn.setCellValueFactory(data -> new ReadOnlyObjectWrapper<>(data.getValue().getHshCode()));
         cardsTable.setItems(tableDataList);
+        ToggleGroup toggleGroup = new ToggleGroup();
+        Menu main = new Menu("Serialization");
+        RadioMenuItem miXML = new RadioMenuItem("XML");
+        miXML.setOnAction((ActionEvent) -> {
+                System.out.println("radio toggled");
+        });
+        miXML.setSelected(true);
+        RadioMenuItem miJSON = new RadioMenuItem("JSON");
+
+        miJSON.setOnAction((ActionEvent) -> {
+            System.out.println("radio toggled");
+        });
+        miXML.setToggleGroup(toggleGroup);
+        miJSON.setToggleGroup(toggleGroup);
+        main.getItems().addAll(miXML, miJSON);
+        menyBar.getMenus().add(main);
     }
 
     @FXML

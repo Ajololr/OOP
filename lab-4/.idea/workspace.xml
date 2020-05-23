@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c3e7d7a9-76bb-42a9-b8e8-4797819a6371" name="Default Changelist" comment="feat: move lab to Maven project">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/OOP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/Data.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/Lab-4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/core.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/Card/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/CardType/CardType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/CommonQuarter/CommonQuarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/Creator/Creator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/HeroCard/HeroCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/MilitaryQuarter/MilitaryQuarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/NobleQuarter/NobleQuarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/QuarterCard/QuarterCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/SpiritualQuarter/SpiritualQuarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/TradeQuarter/TradeQuarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/UniqueQuarter/UniqueQuarter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/BasicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/CardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/Controlable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/TableField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/java/sample/XMLFileControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/plugins/firstPlugin-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/resources/CardForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/core/src/main/resources/sample.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/firstPlugin/firstPlugin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/firstPlugin/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/firstPlugin/src/main/java/NewCard/NewCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/firstPlugin/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/secondPlugin/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/secondPlugin/secondPlugin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/secondPlugin/src/main/java/fool/cards/FoolCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/secondPlugin/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-1/.idea/lab-1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/Plagin1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/src/Plagin1/Plagin1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/Plagin1/src/Plagin1/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/Card/Card.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/CardType/CardType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/CommonQuarter/CommonQuarter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/Creator/Creator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/HeroCard/HeroCard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/META-INF/lab-3.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/MilitaryQuarter/MilitaryQuarter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/NobleQuarter/NobleQuarter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/QuarterCard/QuarterCard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/SpiritualQuarter/SpiritualQuarter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/TradeQuarter/TradeQuarter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/UniqueQuarter/UniqueQuarter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/BasicService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/CardController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/CardForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/Controlable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/Controller.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/IService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/TableField.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/XMLFileControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/out/production/lab-3/sample/sample.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/src/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/src/sample/BasicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab-3/src/sample/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../лабораторные работы ООПТиСП 2020.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-3/Data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab-3/Data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-3/src/HeroCard/HeroCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab-3/src/HeroCard/HeroCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-3/src/sample/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab-3/src/sample/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-3/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab-3/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab-3/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab-3/src/sample/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="module-info" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\University\4 semester\OOP\Lab3\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1c5FoBjRJ4UWNqpfGTPQWKNUVLj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab3" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\java\UniqueQuarter" />
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\java\TradeQuarter" />
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\java\SpiritualQuarter" />
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\java\QuarterCard" />
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\java\NobleQuarter" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\plugins" />
+      <recent name="D:\University\4 semester\OOP\Lab3\firstPlugin\target" />
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main" />
+      <recent name="D:\University\4 semester\OOP\Lab3\firstPlugin\src\main\plugins" />
+      <recent name="D:\University\4 semester\OOP\Lab3\core\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3e7d7a9-76bb-42a9-b8e8-4797819a6371" name="Default Changelist" comment="" />
+      <created>1589810719136</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589810719136</updated>
+      <workItem from="1589810720576" duration="114000" />
+      <workItem from="1589810890661" duration="4888000" />
+      <workItem from="1589815915912" duration="7111000" />
+      <workItem from="1589827711645" duration="101000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: move lab to Maven project" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: move lab to Maven project" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="70" key="#Inspections" timestamp="1589826315007">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="70" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1589826315007" />
+    <state x="485" y="70" key="#Main" timestamp="1589827719352">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="485" y="70" key="#Main/0.0.1536.824@0.0.1536.824" timestamp="1589827719352" />
+    <state x="361" y="70" key="#Project_Structure" timestamp="1589819662026">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="70" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1589819662026" />
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1589826086722">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589826086722" />
+    <state x="653" y="114" key="#xdebugger.evaluate" timestamp="1589811506151">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="653" y="114" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1589811506151" />
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1589827420669">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589827420669" />
+    <state width="499" height="466" key="DebuggerActiveHint" timestamp="1589826973371">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="499" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1589826973371" />
+    <state x="549" y="166" key="FileChooserDialogImpl" timestamp="1589827812741">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589827812741" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1589827536026">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589827536026" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1589827536026">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589827536026" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1589827536026">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589827536026" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1589827536026">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589827536026" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1589827536027">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589827536027" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1589827536027">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589827536027" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1589827536027">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589827536027" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1589827536027">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589827536027" />
+    <state x="299" y="66" key="Maven.ArtifactSearchDialog" timestamp="1589815857994">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="299" y="66" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1589815857994" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1589827773664">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589827773664" />
+    <state x="499" y="177" key="extract.method.dialog" timestamp="1589825794756">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="177" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1589825794756" />
+    <state x="209" y="107" key="new project wizard" timestamp="1589820688811">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="107" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1589820688811" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1589814975274">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1589814975274" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589820186799">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589820186799" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/java/sample/CardController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

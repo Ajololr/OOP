@@ -1,12 +1,14 @@
 package sample;
 
 import Card.Card;
+import Serialization.Serialization;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.Serializable;
 import java.lang.module.Configuration;
 import java.lang.module.ModuleDescriptor;
 import java.lang.module.ModuleFinder;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 
 public class Main extends Application {
     public static LinkedList<Card> cards = new LinkedList<>();
+    public static LinkedList<Serialization> serializations = new LinkedList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -52,6 +55,11 @@ public class Main extends Application {
         List<IService> services = IService.getServices(layer);
         for (IService service : services) {
             cards.add(service.doJob());
+        }
+
+        List<SerializationService> serializationServices = SerializationService.getServices(layer);
+        for (SerializationService service : serializationServices) {
+            serializations.add(service.getSerialisationObj());
         }
 
         launch(args);
