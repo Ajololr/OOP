@@ -13,9 +13,16 @@ import java.io.FileOutputStream;
 import java.util.LinkedList;
 
 public class XMLSerialisation extends Serialization {
+    private final String fileName = "Data.xml";
+
+    @Override
+    public String getFileName() {
+        return fileName;
+    }
+
     @Override
     public void saveToFile(LinkedList<Card> cards) throws Exception {
-        XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("Data.xml")));
+        XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fileName)));
         for (Card card : cards) {
             encoder.writeObject(card);
         }

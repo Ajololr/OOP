@@ -1,6 +1,7 @@
 package sample;
 
 import Card.Card;
+import Decorator.SerialisationWithZip;
 import Serialization.Serialization;
 import XMLSerialisation.XMLSerialisation;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -11,14 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
-import java.beans.ExceptionListener;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
-import java.io.*;
 import java.util.LinkedList;
 
 public class Controller implements Controlable {
@@ -34,6 +28,8 @@ public class Controller implements Controlable {
     public TableColumn<TableField, Object> nameColumn;
     @FXML
     public TableColumn<TableField, Integer> hashCodeColumn;
+    @FXML
+    public CheckBox withZipCheckBox;
 
     @FXML
     public void initialize() {
@@ -68,13 +64,25 @@ public class Controller implements Controlable {
         for (TableField field : cardsTable.getItems()) {
             cards.add(field.getObj());
         }
-        serialization.saveToFile(cards);
+        if (!withZipCheckBox.isSelected()) {
+            serialization.saveToFile(cards);
+        } else {
+            SerialisationWithZip serialisationWithZip = new SerialisationWithZip(serialization);
+            serialisationWithZip.saveToFile(cards);
+        }
     }
 
     @FXML
     public void loadFromFile() throws Exception {
         tableDataList.clear();
-        LinkedList<Card> result = serialization.loadFromFile();
+        LinkedList<Card> result;
+        if (!withZipCheckBox.isSelected()) {
+            result = serialization.loadFromFile();
+        } else {
+            SerialisationWithZip serialisationWithZip = new SerialisationWithZip(serialization);
+            result = serialisationWithZip.loadFromFile();
+        }
+
         for (Card card : result) {
             tableDataList.add(new TableField(card, card.hashCode()));
         }

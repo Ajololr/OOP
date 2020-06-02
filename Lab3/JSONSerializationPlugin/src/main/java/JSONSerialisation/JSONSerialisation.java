@@ -11,26 +11,28 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class JSONSerialisation extends Serialization implements SerializationService {
-    @Override
-    public void saveToFile(LinkedList<Card> cards) throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.writeValue(new File("Data.json"), cards);
+    private final String fileName = "Data.json";
+
+    public String getFileName() {
+        return fileName;
     }
 
-    @Override
+    public void saveToFile(LinkedList<Card> cards) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.writeValue(new File(fileName), cards);
+    }
+
     public LinkedList<Card> loadFromFile() throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 //        String json = (new File("Data.json")).toString();
-        LinkedList<Card> result = objectMapper.readValue(new File("Data.json"), new TypeReference<LinkedList<Card>>(){});
+        LinkedList<Card> result = objectMapper.readValue(new File(fileName), new TypeReference<LinkedList<Card>>(){});
         return result;
     }
 
-    @Override
     public String getSerialisationName() {
         return "JSON";
     }
 
-    @Override
     public Serialization getSerialisationObj() {
         return new JSONSerialisation();
     }
