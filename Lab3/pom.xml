@@ -13,6 +13,7 @@
         <module>firstPlugin</module>
         <module>secondPlugin</module>
         <module>JSONSerializationPlugin</module>
+        <module>encryptionMode</module>
     </modules>
 
     <build>

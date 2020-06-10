@@ -61,6 +61,7 @@ public class HeroCard extends Card {
             try {
                 HeroCard card = new HeroCard(controller.nameField.getText(),(CardType) typeField.getValue(), Integer.parseInt(controller.turnField.getText()), controller.skillField.getText());
                 Controller.tableDataList.set(Controller.selectedIndex, new TableField(card, card.hashCode()));
+                observers.notifyObjectModified(this);
             } catch (Exception ex) {
                 return;
             }
@@ -156,6 +157,7 @@ public class HeroCard extends Card {
             try {
                 HeroCard card = new HeroCard(controller.nameField.getText(), typeField.getValue(), Integer.parseInt(controller.turnField.getText()), controller.skillField.getText());
                 Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                observers.notifyObjectCreated(this);
             } catch (Exception ex) {
                 return;
             }

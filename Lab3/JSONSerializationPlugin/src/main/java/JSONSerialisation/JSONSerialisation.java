@@ -8,7 +8,6 @@ import sample.*;
 
 import java.io.File;
 import java.util.LinkedList;
-import java.util.List;
 
 public class JSONSerialisation extends Serialization implements SerializationService {
     private final String fileName = "Data.json";

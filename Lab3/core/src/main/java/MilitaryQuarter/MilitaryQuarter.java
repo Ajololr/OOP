@@ -28,6 +28,7 @@ public class MilitaryQuarter extends QuarterCard {
             try {
                 MilitaryQuarter card = new MilitaryQuarter(controller.nameField.getText(), Integer.parseInt(controller.costField.getText()));
                 Controller.tableDataList.set(Controller.selectedIndex, new TableField(card, card.hashCode()));
+                observers.notifyObjectModified(this);
             } catch (Exception ex) {
                 return;
             }

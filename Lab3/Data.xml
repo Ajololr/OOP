@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="11.0.4" class="java.beans.XMLDecoder">
- <object class="uno.UnoCard" id="UnoCard0">
-  <void class="uno.UnoCard" method="getField">
-   <string>type</string>
-   <void method="set">
-    <object idref="UnoCard0"/>
-    <object class="java.lang.Enum" method="valueOf">
-     <class>uno.UnoCardColor</class>
-     <string>YELLOW</string>
-    </object>
-   </void>
+ <object class="CommonQuarter.CommonQuarter">
+  <void property="cost">
+   <int>12</int>
   </void>
-  <void class="uno.UnoCard" method="getField">
-   <string>unoCardValue</string>
-   <void method="set">
-    <object idref="UnoCard0"/>
-    <string>6</string>
-   </void>
+  <void property="name">
+   <string>фывфыв</string>
+  </void>
+  <void property="type">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>CardType.CardType</class>
+    <string>COMMON</string>
+   </object>
   </void>
  </object>
 </java>

@@ -1,7 +1,8 @@
 package sample;
 
+import Adapter.EncryptionAdapter;
 import Card.Card;
-import Decorator.SerialisationWithZip;
+import Decorator.*;
 import Serialization.Serialization;
 import XMLSerialisation.XMLSerialisation;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -13,13 +14,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import observer.*;
+
 import java.util.LinkedList;
 
 public class Controller implements Controlable {
     public static ObservableList<TableField> tableDataList = FXCollections.observableArrayList();
     public static int selectedIndex;
     public static boolean isEditing = false;
+    public static Observers observers = new Observers();
     private Serialization serialization = new XMLSerialisation();
+    private Decorator decorator = new BasicDecorator();
+
     @FXML
     public MenuBar menyBar;
     @FXML
@@ -28,8 +34,6 @@ public class Controller implements Controlable {
     public TableColumn<TableField, Object> nameColumn;
     @FXML
     public TableColumn<TableField, Integer> hashCodeColumn;
-    @FXML
-    public CheckBox withZipCheckBox;
 
     @FXML
     public void initialize() {
@@ -54,8 +58,41 @@ public class Controller implements Controlable {
             menuItem.setToggleGroup(toggleGroup);
             main.getItems().add(menuItem);
         }
-
         menyBar.getMenus().add(main);
+
+        ToggleGroup toggleGroupMods = new ToggleGroup();
+        Menu mods = new Menu("Mods");
+        RadioMenuItem miNone = new RadioMenuItem("None");
+        miNone.setOnAction((ActionEvent) -> {
+            decorator = new BasicDecorator();
+        });
+        miNone.setSelected(true);
+        miNone.setToggleGroup(toggleGroupMods);
+        mods.getItems().add(miNone);
+
+        RadioMenuItem miZIP = new RadioMenuItem("With ZIP");
+        miZIP.setOnAction((ActionEvent) -> {
+            decorator = new SerialisationWithZip();
+        });
+        miZIP.setToggleGroup(toggleGroupMods);
+        mods.getItems().add(miZIP);
+
+        RadioMenuItem miEncrypt = new RadioMenuItem("With Encryption");
+        miEncrypt.setOnAction((ActionEvent) -> {
+            decorator = new EncryptionAdapter();
+        });
+        miEncrypt.setToggleGroup(toggleGroupMods);
+        mods.getItems().add(miEncrypt);
+
+        for (Decorator decorator : Main.mods) {
+            RadioMenuItem menuItem = new RadioMenuItem(decorator.getSerialisationName());
+            menuItem.setOnAction((ActionEvent) -> {
+                this.decorator = decorator;
+            });
+            menuItem.setToggleGroup(toggleGroupMods);
+            mods.getItems().add(menuItem);
+        }
+        menyBar.getMenus().add(mods);
     }
 
     @FXML
@@ -64,24 +101,18 @@ public class Controller implements Controlable {
         for (TableField field : cardsTable.getItems()) {
             cards.add(field.getObj());
         }
-        if (!withZipCheckBox.isSelected()) {
-            serialization.saveToFile(cards);
-        } else {
-            SerialisationWithZip serialisationWithZip = new SerialisationWithZip(serialization);
-            serialisationWithZip.saveToFile(cards);
-        }
+
+        decorator.setSerialization(serialization);
+        decorator.saveToFile(cards);
     }
 
     @FXML
     public void loadFromFile() throws Exception {
         tableDataList.clear();
         LinkedList<Card> result;
-        if (!withZipCheckBox.isSelected()) {
-            result = serialization.loadFromFile();
-        } else {
-            SerialisationWithZip serialisationWithZip = new SerialisationWithZip(serialization);
-            result = serialisationWithZip.loadFromFile();
-        }
+
+        decorator.setSerialization(serialization);
+        result = decorator.loadFromFile();
 
         for (Card card : result) {
             tableDataList.add(new TableField(card, card.hashCode()));

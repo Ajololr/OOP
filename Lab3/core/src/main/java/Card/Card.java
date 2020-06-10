@@ -1,9 +1,12 @@
 package Card;
 
+import observer.EmptyObserver;
+import observer.Observers;
 import sample.CardController;
 
 public abstract class Card {
     private String name;
+    public static Observers observers = new Observers();
 
     public Card(String name) {
         this.name = name;

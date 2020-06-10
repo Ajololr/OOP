@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import observer.EmptyObserver;
+import observer.Observers;
 import sample.CardController;
 import sample.Controller;
 import sample.TableField;
@@ -32,6 +34,7 @@ public class CommonQuarter extends QuarterCard {
             try {
                 CommonQuarter card = new CommonQuarter(controller.nameField.getText(), Integer.parseInt(controller.costField.getText()));
                 Controller.tableDataList.set(Controller.selectedIndex, new TableField(card, card.hashCode()));
+                observers.notifyObjectModified(card);
             } catch (Exception ex) {
                 return;
             }
@@ -55,6 +58,7 @@ public class CommonQuarter extends QuarterCard {
             try {
                 CommonQuarter card = new CommonQuarter(controller.nameField.getText(), Integer.parseInt(controller.costField.getText()));
                 Controller.tableDataList.add(new TableField(card, card.hashCode()));
+                observers.notifyObjectCreated(this);
             } catch (Exception ex) {
                 return;
             }

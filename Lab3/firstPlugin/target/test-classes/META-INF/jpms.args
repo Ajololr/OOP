@@ -1,0 +1,4 @@
+--patch-module
+firstPlugin=_
+--add-reads
+firstPlugin=ALL-UNNAMED

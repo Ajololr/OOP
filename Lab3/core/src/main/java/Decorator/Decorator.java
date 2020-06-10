@@ -1,9 +1,15 @@
 package Decorator;
 
-import Card.Card;
 import Serialization.Serialization;
 
-import java.util.LinkedList;
+public abstract class Decorator extends Serialization implements DecoratorService {
+    protected Serialization serialization;
 
-public abstract class Decorator extends Serialization {
+    public Serialization getSerialization() {
+        return serialization;
+    }
+
+    public void setSerialization(Serialization serialization) {
+        this.serialization = serialization;
+    }
 }

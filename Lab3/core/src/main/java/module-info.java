@@ -22,6 +22,7 @@ open module core {
     exports UniqueQuarter;
     exports Card;
     exports Serialization;
+    exports Decorator;
 
     uses IService;
     uses SerializationService;

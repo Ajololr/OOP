@@ -1,6 +1,7 @@
 package sample;
 
 import Card.Card;
+import observer.EmptyObserver;
 
 public class TableField {
     private Card obj;

@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.zip.*;
 
 public class SerialisationWithZip extends Decorator {
-    private Serialization serialization;
     private final String fileName = "Compressed.zip";
 
     @Override
@@ -67,5 +66,14 @@ public class SerialisationWithZip extends Decorator {
 
     public SerialisationWithZip(Serialization serialization) {
         this.serialization = serialization;
+    }
+
+    public SerialisationWithZip() {
+    }
+
+
+    @Override
+    public Decorator getSerialisationObj() {
+        return new SerialisationWithZip();
     }
 }
